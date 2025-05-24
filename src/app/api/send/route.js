@@ -17,20 +17,23 @@ export async function POST(req, res) {
     }
 
     const data = await resend.emails.send({
-      from: fromEmail,
+      from: fromEmail, // Authorized sender (Resend domain)
       to: ['work.mohdpeti@gmail.com'],
+      reply_to: email, // User's email for replies
       subject: `Portfolio Contact: ${subject}`,
-      react: (
-        <>
-          <h1>New Contact Form Submission</h1>
-          <p><strong>Subject:</strong> {subject}</p>
-          <p><strong>From:</strong> {email}</p>
-          <p><strong>Message:</strong></p>
-          <p>{message}</p>
-          <hr />
-          <p><em>This message was sent through your portfolio contact form.</em></p>
-        </>
-      ),
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>From:</strong> ${email}</p>
+        <p><strong>Subject:</strong> ${subject}</p>
+        <p><strong>Message:</strong></p>
+        <div style="background: #f5f5f5; padding: 15px; border-radius: 5px;">
+          ${message.replace(/\n/g, '<br>')}
+        </div>
+        <hr>
+        <p style="color: #666; font-size: 12px;">
+          This message was sent through your portfolio contact form at mohammed-petiwala.com
+        </p>
+      `
     });
     
     console.log("Email sent successfully:", data);
