@@ -23,7 +23,7 @@ html {
 
 @media (max-width: 768px) {
   html {
-    scroll-padding-top: 60px; /* Smaller padding for mobile */
+    scroll-padding-top: 100px; /* Increased padding for mobile to prevent overlap */
   }
 }
 
