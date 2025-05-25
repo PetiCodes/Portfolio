@@ -66,18 +66,17 @@ const HeroSection = () => {
           className="col-span-4 place-self-center mt-4 lg:mt-0"
         >
           <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative overflow-hidden">
-            {/* Placeholder div until image is converted from HEIC */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
-              <span className="text-white text-6xl font-bold">MP</span>
-            </div>
-            {/* Uncomment and update once you convert your HEIC image to PNG/JPG
             <Image
-              src="/images/Me.png"
+              src="/images/Me.jpg"
               alt="Mohammed Petiwala - Full Stack Developer"
               fill
               className="object-cover"
+              onError={(e) => {
+                // Fallback to placeholder if image fails to load
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.parentElement.innerHTML = '<div class="absolute inset-0 bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center"><span class="text-white text-6xl font-bold">MP</span></div>';
+              }}
             />
-            */}
           </div>
         </motion.div>
       </div>
