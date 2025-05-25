@@ -80,9 +80,9 @@ const HeroSection = () => {
     </div>
 
     {/* プロフィール text - bigger, tighter, shifted up */}
-    <div className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-[65%] hidden sm:block">
+    <div className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-[65%] ">
       <div className="transform rotate-[270deg] origin-center">
-        <div className="text-white text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-normal drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] whitespace-nowrap">
+        <div className="text-white text-5xl lg:text-7xl font-extrabold tracking-normal drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] whitespace-nowrap">
           プロフィール
         </div>
       </div>
