@@ -115,7 +115,7 @@ const InProgressSection = () => {
           />
         </h2>
         <p className="text-[#ADB7BE] text-lg max-w-2xl mx-auto">
-          Here's what I'm actively building and learning right now
+          Here&apos;s what I&apos;m actively building and learning right now
         </p>
       </motion.div>
 
@@ -133,7 +133,7 @@ const InProgressSection = () => {
         className="bg-[#181818] rounded-lg p-6 md:p-8 border border-[#33353F]"
       >
         <h3 className="text-2xl font-bold text-white mb-6 text-center">
-          Skills I'm Developing
+          Skills I&apos;m Developing
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {currentSkills.map((item, index) => (
