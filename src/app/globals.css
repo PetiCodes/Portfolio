@@ -27,6 +27,39 @@ html {
   }
 }
 
+/* Spline 3D Model Configurations */
+.spline-container {
+  position: relative;
+}
+
+.spline-container canvas {
+  pointer-events: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+/* Hide Spline watermark */
+.spline-container [class*="watermark"],
+.spline-container [class*="logo"],
+.spline-container [class*="branding"],
+.spline-container a[href*="spline"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Disable context menu on 3D model */
+.spline-container * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

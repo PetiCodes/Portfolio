@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import JapaneseTypeAnimation from "./JapaneseTypeAnimation";
 
 const HeroSection = () => {
   return (
@@ -20,22 +20,15 @@ const HeroSection = () => {
               Hello, I&apos;m{" "}
             </span>
             <br></br>
-            <TypeAnimation
+            <JapaneseTypeAnimation
               sequence={[
                 "Mohammed Petiwala",
-                1000,
                 "Full-Stack Developer",
-                1000,
                 "Tech Enthusiast",
-                1000,
                 "3D Modeller",
-                1000,
                 "Video Editor",
-                1000,
               ]}
-              wrapper="span"
               speed={50}
-              repeat={Infinity}
               className="text-3xl sm:text-4xl lg:text-6xl block -mt-1 lg:-mt-2"
             />
           </h1>
@@ -44,10 +37,10 @@ const HeroSection = () => {
           </p>
           <div>
             <Link
-              href="/#contact"
+              href="/contact"
               className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-200 text-white"
             >
-              Contact Me
+              Say Hi!
             </Link>
             <Link
               href="/resume.pdf"
@@ -65,19 +58,38 @@ const HeroSection = () => {
           transition={{ duration: 0.5 }}
           className="col-span-4 place-self-center mt-4 lg:mt-0"
         >
-          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative overflow-hidden">
-            <Image
-              src="/images/Me.jpg"
-              alt="Mohammed Petiwala - Full Stack Developer"
-              fill
-              className="object-cover"
-              onError={(e) => {
-                // Fallback to placeholder if image fails to load
-                e.currentTarget.style.display = 'none';
-                e.currentTarget.parentElement.innerHTML = '<div class="absolute inset-0 bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center"><span class="text-white text-6xl font-bold">MP</span></div>';
-              }}
-            />
-          </div>
+        <div className="relative flex items-center justify-center">
+  {/* Main image container (larger size) */}
+  <div className="relative w-[300px] h-[380px] lg:w-[360px] lg:h-[440px]">
+    <div className="bg-[#181818] w-full h-full relative overflow-hidden rounded-lg border border-gray-700 shadow-2xl">
+      <Image
+        src="/images/Me.jpg"
+        alt="Mohammed Petiwala - Full Stack Developer"
+        fill
+        sizes="(max-width: 768px) 300px, 360px"
+        className="object-cover"
+        onError={(e) => {
+          e.currentTarget.style.display = 'none';
+          e.currentTarget.parentElement.innerHTML =
+            '<div class="absolute inset-0 bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center"><span class="text-white text-6xl font-bold">MP</span></div>';
+        }}
+      />
+
+      {/* Decorative gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
+    </div>
+
+    {/* プロフィール text - bigger, tighter, shifted up */}
+    <div className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-[65%]">
+      <div className="transform rotate-[270deg] origin-center">
+        <div className="text-white text-5xl lg:text-8xl font-extrabold tracking-normal drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] whitespace-nowrap">
+          プロフィール
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
         </motion.div>
       </div>
     </section>

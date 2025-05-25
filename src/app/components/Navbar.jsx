@@ -4,6 +4,10 @@ import React, { useState } from "react";
 import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
+import Image from "next/image";
+import GithubIcon from "../../../public/github-icon.svg";
+import LinkedinIcon from "../../../public/linkedin-icon.svg";
+import { useAnimation } from "../context/AnimationContext";
 
 const navLinks = [
   {
@@ -14,14 +18,21 @@ const navLinks = [
     title: "Projects",
     path: "#projects",
   },
-  {
-    title: "Contact",
-    path: "#contact",
-  },
 ];
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const { resetAboutMeAnimation, resetProjectsAnimation } = useAnimation();
+
+  const handleAboutClick = () => {
+    resetAboutMeAnimation();
+    setNavbarOpen(false);
+  };
+
+  const handleProjectsClick = () => {
+    resetProjectsAnimation();
+    setNavbarOpen(false);
+  };
 
   return (
     <nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-50 bg-[#121212] bg-opacity-100">
@@ -50,16 +61,32 @@ const Navbar = () => {
           )}
         </div>
         <div className="menu hidden md:block md:w-auto" id="navbar">
-          <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
+          <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0 items-center">
             {navLinks.map((link, index) => (
               <li key={index}>
-                <NavLink href={link.path} title={link.title} />
+                <NavLink 
+                  href={link.path} 
+                  title={link.title}
+                  onClick={
+                    link.title === "About" ? handleAboutClick :
+                    link.title === "Projects" ? handleProjectsClick :
+                    undefined
+                  }
+                />
               </li>
             ))}
+            <li className="flex gap-4 ml-4">
+              <Link href="https://github.com/PetiCodes">
+                <Image src={GithubIcon} alt="Mohammed Petiwala Github" className="w-6 h-6" />
+              </Link>
+              <Link href="https://www.linkedin.com/in/mohdpeti">
+                <Image src={LinkedinIcon} alt="Mohammed Petiwala LinkedIn" className="w-6 h-6" />
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
-      {navbarOpen ? <MenuOverlay links={navLinks} /> : null}
+      {navbarOpen ? <MenuOverlay links={navLinks} onLinkClick={() => setNavbarOpen(false)} onAboutClick={handleAboutClick} onProjectsClick={handleProjectsClick} /> : null}
     </nav>
   );
 };
