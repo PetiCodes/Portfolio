@@ -14,6 +14,7 @@ export const useAnimation = () => {
 export const AnimationProvider = ({ children }) => {
   const aboutMeAnimationRef = useRef();
   const projectsAnimationRef = useRef();
+  const inProgressAnimationRef = useRef();
   const connectAnimationRef = useRef();
 
   const resetAboutMeAnimation = () => {
@@ -28,6 +29,12 @@ export const AnimationProvider = ({ children }) => {
     }
   };
 
+  const resetInProgressAnimation = () => {
+    if (inProgressAnimationRef.current) {
+      inProgressAnimationRef.current.resetAnimation();
+    }
+  };
+
   const resetConnectAnimation = () => {
     if (connectAnimationRef.current) {
       connectAnimationRef.current.resetAnimation();
@@ -38,9 +45,11 @@ export const AnimationProvider = ({ children }) => {
     <AnimationContext.Provider value={{
       aboutMeAnimationRef,
       projectsAnimationRef,
+      inProgressAnimationRef,
       connectAnimationRef,
       resetAboutMeAnimation,
       resetProjectsAnimation,
+      resetInProgressAnimation,
       resetConnectAnimation
     }}>
       {children}

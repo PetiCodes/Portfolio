@@ -5,7 +5,7 @@ import Image from "next/image";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 
-const MenuOverlay = ({ links, onLinkClick, onAboutClick, onProjectsClick }) => {
+const MenuOverlay = ({ links, onLinkClick, onAboutClick, onProjectsClick, onInProgressClick }) => {
   return (
     <ul className="flex flex-col py-4 items-center">
       {links.map((link, index) => (
@@ -16,6 +16,7 @@ const MenuOverlay = ({ links, onLinkClick, onAboutClick, onProjectsClick }) => {
             onClick={
               link.title === "About" ? onAboutClick :
               link.title === "Projects" ? onProjectsClick :
+              link.title === "In Progress" ? onInProgressClick :
               onLinkClick
             }
           />

@@ -18,11 +18,15 @@ const navLinks = [
     title: "Projects",
     path: "#projects",
   },
+  {
+    title: "In Progress",
+    path: "#in-progress",
+  },
 ];
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const { resetAboutMeAnimation, resetProjectsAnimation } = useAnimation();
+  const { resetAboutMeAnimation, resetProjectsAnimation, resetInProgressAnimation } = useAnimation();
 
   const handleAboutClick = () => {
     resetAboutMeAnimation();
@@ -31,6 +35,11 @@ const Navbar = () => {
 
   const handleProjectsClick = () => {
     resetProjectsAnimation();
+    setNavbarOpen(false);
+  };
+
+  const handleInProgressClick = () => {
+    resetInProgressAnimation();
     setNavbarOpen(false);
   };
 
@@ -70,6 +79,7 @@ const Navbar = () => {
                   onClick={
                     link.title === "About" ? handleAboutClick :
                     link.title === "Projects" ? handleProjectsClick :
+                    link.title === "In Progress" ? handleInProgressClick :
                     undefined
                   }
                 />
@@ -86,7 +96,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      {navbarOpen ? <MenuOverlay links={navLinks} onLinkClick={() => setNavbarOpen(false)} onAboutClick={handleAboutClick} onProjectsClick={handleProjectsClick} /> : null}
+      {navbarOpen ? <MenuOverlay links={navLinks} onLinkClick={() => setNavbarOpen(false)} onAboutClick={handleAboutClick} onProjectsClick={handleProjectsClick} onInProgressClick={handleInProgressClick} /> : null}
     </nav>
   );
 };
