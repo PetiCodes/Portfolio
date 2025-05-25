@@ -71,13 +71,13 @@ const AboutSection = () => {
         </div>
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <p className="text-base lg:text-lg">
-          Hey there! To introduce myself, I've always been the kind of person who asks "what happens if I press this?" and then actually presses it. 
-          That curiosity led me to Tech, but it didn't stop there.<br></br><br></br> 
-          I love poking around new tech, figuring things out just because it's fun, and occasionally getting lost in a YouTube rabbit hole about things like neural networks or weird JavaScript quirks.
-          I'm happiest when I'm building, breaking, and rebuilding things—whether it's a tiny script or an entire web app. <br></br><br></br>
-          I think in logic, speak in semicolons, and sometimes argue with my laptop like it's a co-worker.
-          Outside the screen, you'll find me chasing random thoughts, solving problems just for the thrill of it, or celebrating small wins (like finally fixing that one bug that's been haunting me for hours).
-          Basically, I'm here to explore, create, and enjoy the ride. Let's see where it takes us.
+          Hey there! To introduce myself, I&apos;ve always been the kind of person who asks &quot;what happens if I press this?&quot; and then actually presses it. 
+          That curiosity led me to Tech, but it didn&apos;t stop there.<br></br><br></br> 
+          I love poking around new tech, figuring things out just because it&apos;s fun, and occasionally getting lost in a YouTube rabbit hole about things like neural networks or weird JavaScript quirks.
+          I&apos;m happiest when I&apos;m building, breaking, and rebuilding things—whether it&apos;s a tiny script or an entire web app. <br></br><br></br>
+          I think in logic, speak in semicolons, and sometimes argue with my laptop like it&apos;s a co-worker.
+          Outside the screen, you&apos;ll find me chasing random thoughts, solving problems just for the thrill of it, or celebrating small wins (like finally fixing that one bug that&apos;s been haunting me for hours).
+          Basically, I&apos;m here to explore, create, and enjoy the ride. Let&apos;s see where it takes us.
           </p>
           <div className="flex flex-row justify-start mt-8">
             <TabButton
