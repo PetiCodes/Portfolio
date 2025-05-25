@@ -58,9 +58,9 @@ const HeroSection = () => {
           transition={{ duration: 0.5 }}
           className="col-span-4 place-self-center mt-4 lg:mt-0"
         >
-        <div className="relative flex items-center justify-center">
-  {/* Main image container (larger size) */}
-  <div className="relative w-[300px] h-[380px] lg:w-[360px] lg:h-[440px]">
+        <div className="relative flex items-center justify-center w-full">
+  {/* Main image container (responsive size) */}
+  <div className="relative w-[250px] h-[320px] sm:w-[300px] sm:h-[380px] lg:w-[360px] lg:h-[440px] max-w-full">
     <div className="bg-[#181818] w-full h-full relative overflow-hidden rounded-lg border border-gray-700 shadow-2xl">
       <Image
         src="/images/Me.jpg"
@@ -80,9 +80,9 @@ const HeroSection = () => {
     </div>
 
     {/* プロフィール text - bigger, tighter, shifted up */}
-    <div className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-[65%]">
+    <div className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-[65%] hidden sm:block">
       <div className="transform rotate-[270deg] origin-center">
-        <div className="text-white text-5xl lg:text-8xl font-extrabold tracking-normal drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] whitespace-nowrap">
+        <div className="text-white text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-normal drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] whitespace-nowrap">
           プロフィール
         </div>
       </div>

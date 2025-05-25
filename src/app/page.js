@@ -9,10 +9,10 @@ import { AnimationProvider } from "./context/AnimationContext";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-[#121212]">
+    <main className="flex min-h-screen flex-col bg-[#121212] overflow-x-hidden">
       <AnimationProvider>
         <Navbar />
-        <div className="container mt-24 mx-auto px-12 py-4">
+        <div className="container mt-24 mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-4 max-w-full">
           <HeroSection />
           <AboutSection />
           <AchievementsSection />

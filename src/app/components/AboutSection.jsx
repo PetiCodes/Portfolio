@@ -65,7 +65,7 @@ const AboutSection = () => {
           speed={200}
         />
       </h2>
-      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
+      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-0 sm:px-4 xl:gap-16 sm:py-16 xl:px-16">
         <div className="w-full h-[400px] md:h-[500px] relative bg-[#181818] overflow-hidden">
           <LaptopModel />
         </div>

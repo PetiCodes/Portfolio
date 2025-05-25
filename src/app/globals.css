@@ -19,12 +19,25 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px; /* Account for fixed navbar */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 @media (max-width: 768px) {
   html {
     scroll-padding-top: 100px; /* Increased padding for mobile to prevent overlap */
   }
+}
+
+/* Prevent horizontal scrolling on all elements */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 /* Spline 3D Model Configurations */
