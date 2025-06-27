@@ -34,9 +34,13 @@ const ExperienceSection = () => {
       >
         <div className="max-w-xl">
           <div className="flex justify-center mb-4">
-            <div className="w-[200px] h-[100px] bg-gray-700 flex items-center justify-center rounded">
-              <span className="text-white">Logo Placeholder</span>
-            </div>
+            <Image
+              src="/images/unitile-logo.png"
+              alt="Unitile Logo"
+              width={200}
+              height={100}
+              className="rounded"
+            />
           </div>
           <br></br>
           <p className="text-gray-400 text-center">Software Development Intern | June 2025 – Present</p>
