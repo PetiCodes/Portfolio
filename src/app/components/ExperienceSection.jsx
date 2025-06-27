@@ -48,8 +48,7 @@ const ExperienceSection = () => {
             <li>🛠 Managing the development of ERP software solution.</li>
             <li>Coordinating and managing the entire development lifecycle of Unitile&apos;s custom ERP system.</li>
             <li>Defining feature requirements, tracking progress, and ensuring alignment with business goals.</li>
-            <li>Supporting quality assurance by identifying bottlenecks, bugs, and workflow improvements during testing phases.</li>
-            <li>Gaining hands-on experience in project management, documentation, and software lifecycle planning.</li>
+            <li>Ensuring quality assurance by identifying bottlenecks, bugs, and workflow improvements during testing phases.</li>
           </ul>
         </div>
       </motion.div>
