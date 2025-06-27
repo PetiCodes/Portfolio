@@ -48,13 +48,21 @@ const ProjectsSection = () => {
 
   return (
     <section id="projects">
-      <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
-        <ProjectsAnimation 
-          ref={projectsAnimationRef}
-          className="text-center text-4xl font-bold text-white"
-          speed={100}
-        />
-      </h2>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-center mb-12"
+      >
+        <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
+          <ProjectsAnimation
+            ref={projectsAnimationRef}
+            className="text-center text-4xl font-bold text-white"
+            speed={100}
+          />
+        </h2>
+      </motion.div>
       <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
         <ProjectTag
           onClick={handleTagChange}

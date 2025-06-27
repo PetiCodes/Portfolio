@@ -6,6 +6,7 @@ import InProgressSection from "./components/InProgressSection";
 import Footer from "./components/Footer";
 import AchievementsSection from "./components/AchievementsSection";
 import { AnimationProvider } from "./context/AnimationContext";
+import ExperienceSection from "./components/ExperienceSection";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <div className="container mt-24 mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-4 max-w-full">
           <HeroSection />
           <AboutSection />
+          <ExperienceSection />
           <AchievementsSection />
           <ProjectsSection />
           <InProgressSection />

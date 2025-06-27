@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 // Japanese character mappings for "My Projects"
 const japaneseMap = {
-  'M': 'モ', 'y': 'よ', ' ': ' ', 'P': 'プ', 'r': 'ら', 'o': 'お', 'j': 'じ', 'e': 'え', 'c': 'ち', 't': 'て', 's': 'す'
+  'M': 'ま', 'y': 'い', ' ': ' ', 'P': 'ぷ', 'r': 'ろ', 'o': 'お', 'j': 'じ', 'e': 'え', 'c': 'く', 't': 'つ', 's': 'す'
 };
 
 const ProjectsAnimation = forwardRef(({ 
@@ -18,7 +18,6 @@ const ProjectsAnimation = forwardRef(({
 
   const targetText = "My Projects";
 
-  // Expose reset function to parent components
   useImperativeHandle(ref, () => ({
     resetAnimation: () => {
       setDisplayText("");
@@ -30,33 +29,27 @@ const ProjectsAnimation = forwardRef(({
 
   useEffect(() => {
     let timeout;
-
     if (isTyping && currentCharIndex < targetText.length) {
-      // Typing phase
       const targetChar = targetText[currentCharIndex];
       const japaneseChar = japaneseMap[targetChar] || targetChar;
       
-      // Show Japanese character first
       const baseText = targetText.slice(0, currentCharIndex);
       setDisplayText(baseText + japaneseChar);
       
-      // Then replace with English character after delay
       timeout = setTimeout(() => {
         setDisplayText(baseText + targetChar);
         setCurrentCharIndex(prev => prev + 1);
       }, speed);
       
     } else if (isTyping && currentCharIndex >= targetText.length) {
-      // Finished typing, wait 5 seconds then restart
       timeout = setTimeout(() => {
         setDisplayText("");
         setCurrentCharIndex(0);
-        // Keep looping the animation
       }, 5000);
     }
 
     return () => clearTimeout(timeout);
-  }, [currentCharIndex, isTyping, speed, animationKey]);
+  }, [currentCharIndex, isTyping, speed, animationKey, targetText]);
 
   return (
     <span className={className} key={animationKey}>

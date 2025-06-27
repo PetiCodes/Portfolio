@@ -4,6 +4,7 @@ import LaptopModel from "./LaptopModel";
 import TabButton from "./TabButton";
 import AboutMeAnimation from "./AboutMeAnimation";
 import { useAnimation } from "../context/AnimationContext";
+import { motion } from "framer-motion";
 
 const TAB_DATA = [
   {
@@ -58,26 +59,46 @@ const AboutSection = () => {
 
   return (
     <section className="text-white" id="about">
-      <h2 className="text-center text-4xl font-bold text-white mt-24 mb-4 md:mb-6">
-        <AboutMeAnimation 
-          ref={aboutMeAnimationRef}
-          className="text-center text-4xl font-bold text-white"
-          speed={200}
-        />
-      </h2>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-center mb-12"
+      >
+        <h2 className="text-center text-4xl font-bold text-white mt-24 mb-4 md:mb-6">
+          <AboutMeAnimation
+            ref={aboutMeAnimationRef}
+            className="text-center text-4xl font-bold text-white"
+            speed={100}
+          />
+        </h2>
+      </motion.div>
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-0 sm:px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <div className="w-full h-[400px] md:h-[500px] relative bg-[#181818] overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="w-full h-[400px] md:h-[500px] relative bg-[#181818] overflow-hidden"
+        >
           <LaptopModel />
-        </div>
-        <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="mt-4 md:mt-0 text-left flex flex-col h-full"
+        >
           <p className="text-base lg:text-lg">
-          Hey there! To introduce myself, I&apos;ve always been the kind of person who asks &quot;what happens if I press this?&quot; and then actually presses it. 
-          That curiosity led me to Tech, but it didn&apos;t stop there.<br></br><br></br> 
-          I love poking around new tech, figuring things out just because it&apos;s fun, and occasionally getting lost in a YouTube rabbit hole about things like neural networks or weird JavaScript quirks.
-          I&apos;m happiest when I&apos;m building, breaking, and rebuilding things—whether it&apos;s a tiny script or an entire web app. <br></br><br></br>
-          I think in logic, speak in semicolons, and sometimes argue with my laptop like it&apos;s a co-worker.
-          Outside the screen, you&apos;ll find me chasing random thoughts, solving problems just for the thrill of it, or celebrating small wins (like finally fixing that one bug that&apos;s been haunting me for hours).
-          Basically, I&apos;m here to explore, create, and enjoy the ride. Let&apos;s see where it takes us.
+            Hey there! To introduce myself, I&apos;ve always been the kind of person who asks &quot;what happens if I press this?&quot; and then actually presses it.
+            That curiosity led me to Tech, but it didn&apos;t stop there.<br></br><br></br>
+            I love poking around new tech, figuring things out just because it&apos;s fun, and occasionally getting lost in a YouTube rabbit hole about things like neural networks or weird JavaScript quirks.
+            I&apos;m happiest when I&apos;m building, breaking, and rebuilding things—whether it&apos;s a tiny script or an entire web app. <br></br><br></br>
+            I think in logic, speak in semicolons, and sometimes argue with my laptop like it&apos;s a co-worker.
+            Outside the screen, you&apos;ll find me chasing random thoughts, solving problems just for the thrill of it, or celebrating small wins (like finally fixing that one bug that&apos;s been haunting me for hours).
+            Basically, I&apos;m here to explore, create, and enjoy the ride. Let&apos;s see where it takes us.
           </p>
           <div className="flex flex-row justify-start mt-8">
             <TabButton
@@ -105,7 +126,7 @@ const AboutSection = () => {
           <div className="mt-8">
             {TAB_DATA.find((t) => t.id === tab).content}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

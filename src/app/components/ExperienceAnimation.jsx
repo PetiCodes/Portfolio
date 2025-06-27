@@ -3,10 +3,10 @@ import React, { useState, useEffect, useImperativeHandle, forwardRef } from "rea
 import { motion } from "framer-motion";
 
 const japaneseMap = {
-  'A': 'あ', 'b': 'ぼ', 'o': 'う', 'u': 'う', 't': 'と', ' ': ' ', 'M': 'め', 'e': 'え'
+  'M': 'ま', 'y': 'い', ' ': ' ', 'E': 'え', 'x': 'く', 'p': 'ぷ', 'e': 'え', 'r': 'り', 'i': 'い', 'n': 'ん', 'c': 'せ'
 };
 
-const AboutMeAnimation = forwardRef(({
+const ExperienceAnimation = forwardRef(({
   className = "",
   speed = 100
 }, ref) => {
@@ -15,7 +15,7 @@ const AboutMeAnimation = forwardRef(({
   const [isTyping, setIsTyping] = useState(true);
   const [animationKey, setAnimationKey] = useState(0);
 
-  const targetText = "About Me";
+  const targetText = "My Experience";
 
   useImperativeHandle(ref, () => ({
     resetAnimation: () => {
@@ -62,6 +62,6 @@ const AboutMeAnimation = forwardRef(({
   );
 });
 
-AboutMeAnimation.displayName = 'AboutMeAnimation';
+ExperienceAnimation.displayName = 'ExperienceAnimation';
 
-export default AboutMeAnimation; 
+export default ExperienceAnimation; 

@@ -12,46 +12,33 @@ export const useAnimation = () => {
 };
 
 export const AnimationProvider = ({ children }) => {
-  const aboutMeAnimationRef = useRef();
-  const projectsAnimationRef = useRef();
-  const inProgressAnimationRef = useRef();
-  const connectAnimationRef = useRef();
+  const aboutMeAnimationRef = useRef(null);
+  const projectsAnimationRef = useRef(null);
+  const inProgressAnimationRef = useRef(null);
+  const connectAnimationRef = useRef(null);
+  const experienceAnimationRef = useRef(null);
 
-  const resetAboutMeAnimation = () => {
-    if (aboutMeAnimationRef.current) {
-      aboutMeAnimationRef.current.resetAnimation();
+  const resetAnimation = (ref) => {
+    if (ref.current && typeof ref.current.resetAnimation === 'function') {
+      ref.current.resetAnimation();
     }
   };
 
-  const resetProjectsAnimation = () => {
-    if (projectsAnimationRef.current) {
-      projectsAnimationRef.current.resetAnimation();
-    }
-  };
-
-  const resetInProgressAnimation = () => {
-    if (inProgressAnimationRef.current) {
-      inProgressAnimationRef.current.resetAnimation();
-    }
-  };
-
-  const resetConnectAnimation = () => {
-    if (connectAnimationRef.current) {
-      connectAnimationRef.current.resetAnimation();
-    }
+  const value = {
+    aboutMeAnimationRef,
+    projectsAnimationRef,
+    inProgressAnimationRef,
+    connectAnimationRef,
+    experienceAnimationRef,
+    resetAboutMeAnimation: () => resetAnimation(aboutMeAnimationRef),
+    resetProjectsAnimation: () => resetAnimation(projectsAnimationRef),
+    resetInProgressAnimation: () => resetAnimation(inProgressAnimationRef),
+    resetConnectAnimation: () => resetAnimation(connectAnimationRef),
+    resetExperienceAnimation: () => resetAnimation(experienceAnimationRef),
   };
 
   return (
-    <AnimationContext.Provider value={{
-      aboutMeAnimationRef,
-      projectsAnimationRef,
-      inProgressAnimationRef,
-      connectAnimationRef,
-      resetAboutMeAnimation,
-      resetProjectsAnimation,
-      resetInProgressAnimation,
-      resetConnectAnimation
-    }}>
+    <AnimationContext.Provider value={value}>
       {children}
     </AnimationContext.Provider>
   );
