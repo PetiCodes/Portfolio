@@ -45,7 +45,7 @@ const ExperienceSection = () => {
           <br></br>
           <p className="text-gray-400 text-center">Software Development Intern | June 2025 – Present</p>
           <ul className="list-disc pl-5 mt-4 space-y-2 text-gray-300">
-            <li>🛠 Overseeing the development of ERP software solutions.</li>
+            <li>🛠 Managing the development of ERP software solutions.</li>
             <li>Coordinating and managing the entire development lifecycle of Unitile's custom ERP system.</li>
             <li>Defining feature requirements, tracking progress, and ensuring alignment with business goals.</li>
             <li>Maintaining quality assurance by identifying bottlenecks, bugs, and workflow improvements during testing phases.</li>
