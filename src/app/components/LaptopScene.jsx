@@ -23,26 +23,22 @@ export default function LaptopScene() {
   useEffect(() => {
     if (!mountRef.current) return;
 
-    // Scene setup
+    const currentMount = mountRef.current;
+    
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    currentMount.appendChild(renderer.domElement);
+    
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       50,
-      mountRef.current.clientWidth / mountRef.current.clientHeight,
+      currentMount.clientWidth / currentMount.clientHeight,
       0.1,
       1000
     );
     
-    const renderer = new THREE.WebGLRenderer({ 
-      antialias: true, 
-      alpha: true 
-    });
-    renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
-    renderer.setClearColor(0x121212, 1); // Match main page background color #121212
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    mountRef.current.appendChild(renderer.domElement);
-    
-    console.log('Canvas dimensions:', `${mountRef.current.clientWidth}x${mountRef.current.clientHeight}`);
+    console.log('Canvas dimensions:', `${currentMount.clientWidth}x${currentMount.clientHeight}`);
 
     // Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
@@ -306,17 +302,18 @@ export default function LaptopScene() {
 
     // Handle resize
     const handleResize = () => {
-      if (!mountRef.current) return;
+      if (!currentMount) return;
       
-      camera.aspect = mountRef.current.clientWidth / mountRef.current.clientHeight;
+      camera.aspect = currentMount.clientWidth / currentMount.clientHeight;
       camera.updateProjectionMatrix();
-      renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
+      renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
     };
 
     window.addEventListener('resize', handleResize);
 
     // Cleanup
     return () => {
+      currentMount.removeChild(renderer.domElement);
       window.removeEventListener('resize', handleResize);
       
       // Clean up mouse event listeners
@@ -331,10 +328,6 @@ export default function LaptopScene() {
       
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
-      }
-      
-      if (mountRef.current && renderer.domElement) {
-        mountRef.current.removeChild(renderer.domElement);
       }
       
       renderer.dispose();

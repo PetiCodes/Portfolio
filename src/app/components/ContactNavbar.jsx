@@ -1,6 +1,10 @@
 "use client";
 import Link from "next/link";
 import React from "react";
+import { useAnimation } from "../context/AnimationContext";
+import GithubIcon from "../../../public/github-icon.svg";
+import LinkedinIcon from "../../../public/linkedin-icon.svg";
+import Image from "next/image";
 
 const ContactNavbar = () => {
   return (
@@ -10,7 +14,7 @@ const ContactNavbar = () => {
           href={"/"}
           className="text-2xl md:text-5xl text-white font-semibold"
         >
-          <img src="/images/logo.png" alt="Logo" className="h-8 md:h-12" />
+          <Image src="/images/logo.png" alt="Logo" className="h-8 md:h-12" width={160} height={48} />
         </Link>
         <div className="menu md:block md:w-auto" id="navbar">
           <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0 items-center">

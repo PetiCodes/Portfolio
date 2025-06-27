@@ -34,21 +34,18 @@ const ExperienceSection = () => {
       >
         <div className="max-w-xl">
           <div className="flex justify-center mb-4">
-            <Image
-              src="/images/unitile-logo.png"
-              alt="Unitile Logo"
-              width={200}
-              height={100}
-              className="rounded"
-            />
+            <div className="w-[200px] h-[100px] bg-gray-700 flex items-center justify-center rounded">
+              <span className="text-white">Logo Placeholder</span>
+            </div>
           </div>
           <br></br>
           <p className="text-gray-400 text-center">Software Development Intern | June 2025 – Present</p>
           <ul className="list-disc pl-5 mt-4 space-y-2 text-gray-300">
-            <li>🛠 Managing the development of ERP software solutions.</li>
-            <li>Coordinating and managing the entire development lifecycle of Unitile's custom ERP system.</li>
+            <li>🛠 Managing the development of ERP software solution.</li>
+            <li>Coordinating and managing the entire development lifecycle of Unitile&apos;s custom ERP system.</li>
             <li>Defining feature requirements, tracking progress, and ensuring alignment with business goals.</li>
-            <li>Maintaining quality assurance by identifying bottlenecks, bugs, and workflow improvements during testing phases.</li>
+            <li>Supporting quality assurance by identifying bottlenecks, bugs, and workflow improvements during testing phases.</li>
+            <li>Gaining hands-on experience in project management, documentation, and software lifecycle planning.</li>
           </ul>
         </div>
       </motion.div>
